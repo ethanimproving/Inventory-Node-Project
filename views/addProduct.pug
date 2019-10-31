@@ -1,0 +1,77 @@
+extends partials/header
+
+block content
+    // FORM
+    .pt-5.px-5
+      .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-2.mb-3.border-bottom
+        h1.h2 Add Product Form
+      .card.shadow
+        .card-body
+          .row
+            .col-sm-6
+              form
+                .form-group
+                  label(for='productName') Name
+                  input#productName.form-control(type='name' placeholder='Product Name')
+                .form-group
+                  label(for='exampleFormControlDescription') Description
+                  textarea#exampleFormControlDescription.form-control(rows='3')
+                .form-group.row
+                  .form-group.col-sm-6
+                    label(for='inputPrice3') Price
+                    .input-group.mb-3
+                      .input-group-prepend
+                        span.input-group-text $
+                      input.form-control(type='text' aria-label='Amount (to the nearest dollar)')
+                      .input-group-append
+                        span.input-group-text .00
+                  .form-group.col-md-4
+                    label(for='inputQuantity') Quantity
+                    select#inputQuantity.form-control
+                      option(selected='') Quantity...
+                      option 1
+                      option 5
+                      option 10
+                      option 25
+                      option 50
+                      option 100
+                .form-group.row
+                  .col-sm-2 Checkbox
+                  .col-sm-10
+                    .form-check
+                      input#gridCheck1.form-check-input(type='checkbox')
+                      label.form-check-label(for='gridCheck1')
+                        | Example checkbox
+                button.btn.btn-primary(type='submit') Submit
+            .col-sm-6
+              form                
+                .form-group.file-upload-wrapper
+                  label(for='exampleFormControlFile1') Product Image
+                  input#exampleFormControlFile1.form-control-file(type='file')
+                fieldset.form-group
+                  .row
+                    legend.col-form-label.col-sm-2.pt-0 Brand
+                    .col-sm-10
+                      .form-check
+                        input#gridBrand1.form-check-input(type='radio' name='gridBrand' value='option1' checked='')
+                        label.form-check-label(for='gridBrand1')
+                          | First brand
+                      .form-check
+                        input#gridBrand2.form-check-input(type='radio' name='gridBrand' value='option2')
+                        label.form-check-label(for='gridBrand2')
+                          | Second brand
+                      .form-check.disabled
+                        input#gridBrand3.form-check-input(type='radio' name='gridBrand' value='option3' disabled='')
+                        label.form-check-label(for='gridBrand3')
+                          | Third brand
+                .form-group.col-md-12
+                  label(for='inputQuantity') Version
+                  select#inputQuantity.form-control
+                    option(selected='') Version...
+                    option Version 1.0.5
+                    option Version 1.0.4
+                    option Version 1.0.3
+                    option Version 1.0.2
+                    option Version 1.0.1
+                    option Version 1.0.0
+    include partials/footer

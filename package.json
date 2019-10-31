@@ -1,0 +1,17 @@
+{
+  "name": "inventory",
+  "version": "1.0.0",
+  "description": "An inventory management system",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ethan Miller",
+  "license": "ISC"
+}

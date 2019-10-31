@@ -1,0 +1,20 @@
+extends partials/header
+
+block content
+  // FORM
+  .pt-5.px-5
+    .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-2.mb-3.border-bottom
+      h1.h2 Product Page
+    .card
+      h5.card-header Tasty Cotton Gloves
+      .card-body
+        .row
+          .col-sm-6
+            .form-control.form-group
+              img(src='/img/S-7892M.jpg' alt='')
+          .col-sm-6
+            h5.card-title Tasty Cotton Gloves
+            p.card-text
+              | With suprising soft feel as a natural lead-in to touching bathtubs. Keep sensitive products clean from fingerprints and smudges.
+        a.btn.btn-primary(href='#') Buy Right Now!
+  include partials/footer
