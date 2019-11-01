@@ -7,36 +7,35 @@ block content
         h1.h2 Add Product Form
       .card.shadow
         .card-body
-          .row
+          form.row(method='POST', action='/form/add')
             .col-sm-5
-              form
-                .form-group
-                  label(for='productName') Name
-                  input#productName.form-control(type='name' placeholder='Product Name')
-                .form-group
-                  label(for='productManufacturer') Manufacturer
-                  input#productManufacturer.form-control(type='name' placeholder='Brand Name')
-                .form-group
-                  label(for='productSKU') SKU
-                  input#productSKU.form-control(type='name' placeholder='SKU Number')
-                .form-group
-                  label(for='inputQuantity') Attributes
-                  select#inputQuantity.form-control
-                    option(selected='') Color...
-                    option Black
-                    option Blue
-                    option Red
-                    option Pink
-                    option Green
-                    option Orange
-                .form-group
-                  label(for='exampleFormControlDescription') Description
-                  textarea#exampleFormControlDescription.form-control(rows='3')
+              .form-group
+                label(for='productName') Name
+                input#productName.form-control(type='name' name='name' placeholder='Product Name')
+              .form-group
+                label(for='productManufacturer') Manufacturer
+                input#productManufacturer.form-control(type='name' name='brand' placeholder='Brand Name')
+              .form-group
+                label(for='productSKU') SKU
+                input#productSKU.form-control(type='name' name='sku' placeholder='SKU Number')
+              .form-group
+                label(for='inputQuantity') Attributes
+                select#inputQuantity.form-control(name='color')
+                  option(selected='') Color...
+                  option Black
+                  option Blue
+                  option Red
+                  option Pink
+                  option Green
+                  option Orange
+              .form-group
+                label(for='exampleFormControlDescription') Description
+                textarea#exampleFormControlDescription.form-control(rows='3')
             .col-sm-1
             .col-sm-5
               .avatar-upload
                 .avatar-edit
-                  input#imageUpload(type='file', accept='.png, .jpg, .jpeg')
+                  input#imageUpload(type='file', name='imagePath' accept='.png, .jpg, .jpeg')
                   label(for='imageUpload')
                 .avatar-preview
                   #imagePreview(style='background-image: url(/img/logo.png);')
@@ -46,7 +45,7 @@ block content
                     .input-group.mb-3
                       .input-group-prepend
                         span.input-group-text $
-                      input.form-control(type='text' aria-label='Amount (to the nearest dollar)')
+                      input.form-control(type='number' name='price' aria-label='Amount (to the nearest dollar)')
                       .input-group-append
                         span.input-group-text .00
                   .form-group.col-sm-6
@@ -54,11 +53,11 @@ block content
                     .input-group.mb-3
                       .input-group-prepend
                         span.input-group-text $
-                      input.form-control(type='text' aria-label='Amount (to the nearest dollar)')
+                      input.form-control(type='text' name='cost' aria-label='Amount (to the nearest dollar)')
                       .input-group-append
                         span.input-group-text .00
                   .form-group.col-md-4
-                    select#inputQuantity.form-control
+                    select#inputQuantity.form-control(type="number" name='stock')
                       option(selected='') Quantity...
                       option 1
                       option 5

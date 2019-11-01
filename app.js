@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const http = require('http');
+const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
 // Database connection
@@ -23,6 +24,12 @@ const app = express();
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+// Body Parser Middleware
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 
 // Set Public Folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -47,6 +54,10 @@ app.get('/product', function(req, res){
     res.render('product');
 });
 
+app.get('/login', function(req, res){
+  res.render('login');
+});
+
 // Get contents of products table
 app.get('/getproducts', function(req, res){
   let sql = 'select * from products';
@@ -57,6 +68,22 @@ app.get('/getproducts', function(req, res){
       products: products
     });
   });
+});
+
+
+// Add Submit POST Route of Form
+app.post('/form/add', function(req, res){
+
+    let sql = "INSERT INTO products (Name, Price, Stock, Version, Brand) VALUES ?";
+    let values = [
+      [req.body.name, req.body.price, req.body.stock, '1.0.0', req.body.brand],
+    ];
+    db.query(sql, [values], function (err, result) {
+      if (err) throw err;
+      console.log("Number of records inserted: " + result.affectedRows);
+      res.redirect('/');
+    });
+
 });
 
 

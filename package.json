@@ -4,6 +4,7 @@
   "description": "An inventory management system",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mysql": "^2.17.1",
     "nodemon": "^1.19.4",
