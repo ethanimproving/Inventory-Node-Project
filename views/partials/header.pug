@@ -12,6 +12,7 @@ head
   link(rel='stylesheet' href='/bootstrap-4.0.0-dist/css/bootstrap-reboot.css')
   link(rel='canonical' href='https://getbootstrap.com/docs/4.0/examples/dashboard/')
   link(rel='stylesheet' href='/css/stylesheet.css')
+
 // NAVBAR
 //
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -47,10 +48,14 @@ head
             a.nav-link(href='#')
               span(data-feather='file')
               |                       Orders
-          li.nav-item
-            a.nav-link(href='#')
+          li.nav-item.dropdown.dropright
+            a.nav-link.dropdown-toggle(data-toggle='dropdown')
               span(data-feather='users')
               |                       Customers
+            .dropdown-menu(x-placement='right-start', style='position: absolute; transform: translate3d(248px, 0px, 0px); top: 0px; left: 0px; will-change: transform;')
+              a.dropdown-item(href='#') Link 1
+              a.dropdown-item(href='#') Link 2
+              a.dropdown-item(href='#') Link 3
           li.nav-item
             a.nav-link(href='#')
               span(data-feather='bar-chart-2')

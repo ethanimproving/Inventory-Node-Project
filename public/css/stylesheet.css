@@ -57,7 +57,12 @@ section.search {
     padding: 0;
 }
 
-/* DASHBOARD CSS */
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* DASHBOARD CSS *************************************/
 
 body {
     font-size: .875rem;
