@@ -2,7 +2,7 @@ extends partials/header
 
 block content
     // TABLE
-    .pt-3.px-4
+    .pt-5.px-5
         .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-2.mb-3.border-bottom
           h1.h2 Dashboard
           .btn-toolbar.mb-2.mb-md-0
@@ -17,106 +17,17 @@ block content
           table.table.table-striped.table-sm
             thead
               tr
-                th #
                 th Name
                 th Price
                 th Stock
                 th Version
+                th Brand
             tbody
-              tr
-                td 1,001
-                td Generic Fresh Bacon
-                td 287.00
-                td 783
-                td sit
-              tr
-                td 1,002
-                td Practical Granite Table
-                td 830.00
-                td 598
-                td elit
-              tr
-                td 1,003
-                td Small Concrete Tuna
-                td 958.00
-                td 28
-                td Praesent
-              tr
-                td 1,003
-                td Rustic Frozen Pants
-                td 277.00
-                td 232
-                td ante
-              tr
-                td 1,004
-                td Gorgeous Concrete Keyboard
-                td 939.00
-                td 511
-                td nisi
-              tr
-                td 1,005
-                td Sleek Cotton Pants
-                td 331.00
-                td 446
-                td at
-              tr
-                td 1,006
-                td Ergonomic Cotton Shirt
-                td 69.00
-                td 815
-                td Duis
-              tr
-                td 1,007
-                td Awesome Concrete Chips
-                td 876.00
-                td 34
-                td mauris
-              tr
-                td 1,008
-                td Handmade Metal Salad
-                td 117.00
-                td 927
-                td sed
-              tr
-                td 1,009
-                td Unbranded Frozen Hat
-                td 496.00
-                td 168
-                td Mauris
-              tr
-                td 1,010
-                td Handmade Plastic Gloves
-                td 740.00
-                td 975
-                td arcu
-              tr
-                td 1,011
-                td Unbranded Rubber Shirt
-                td 358.00
-                td 108
-                td aptent
-              tr
-                td 1,012
-                td Generic Fresh Gloves
-                td 726.00
-                td 366
-                td litora
-              tr
-                td 1,013
-                td Tasty Cotton Gloves
-                td 322.00
-                td 67
-                td nostra
-              tr
-                td 1,014
-                td Refined Soft Chips
-                td 333.00
-                td 270
-                td Curabitur
-              tr
-                td 1,015
-                td Tasty Steel Table
-                td 498.00
-                td 280
-                td libero
+              each product, i in products
+                tr
+                  td= product.Name
+                  td= product.Price
+                  td= product.Stock
+                  td= product.Version
+                  td= product.Brand
     include partials/footer

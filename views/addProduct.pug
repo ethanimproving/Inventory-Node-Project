@@ -8,15 +8,39 @@ block content
       .card.shadow
         .card-body
           .row
-            .col-sm-6
+            .col-sm-5
               form
                 .form-group
                   label(for='productName') Name
                   input#productName.form-control(type='name' placeholder='Product Name')
                 .form-group
+                  label(for='productManufacturer') Manufacturer
+                  input#productManufacturer.form-control(type='name' placeholder='Brand Name')
+                .form-group
+                  label(for='productSKU') SKU
+                  input#productSKU.form-control(type='name' placeholder='SKU Number')
+                .form-group
+                  label(for='inputQuantity') Attributes
+                  select#inputQuantity.form-control
+                    option(selected='') Color...
+                    option Black
+                    option Blue
+                    option Red
+                    option Pink
+                    option Green
+                    option Orange
+                .form-group
                   label(for='exampleFormControlDescription') Description
                   textarea#exampleFormControlDescription.form-control(rows='3')
-                .form-group.row
+            .col-sm-1
+            .col-sm-5
+              .avatar-upload
+                .avatar-edit
+                  input#imageUpload(type='file', accept='.png, .jpg, .jpeg')
+                  label(for='imageUpload')
+                .avatar-preview
+                  #imagePreview(style='background-image: url(/img/logo.png);')
+              .form-group.row
                   .form-group.col-sm-6
                     label(for='inputPrice3') Price
                     .input-group.mb-3
@@ -25,8 +49,15 @@ block content
                       input.form-control(type='text' aria-label='Amount (to the nearest dollar)')
                       .input-group-append
                         span.input-group-text .00
+                  .form-group.col-sm-6
+                    label(for='inputPrice3') Cost
+                    .input-group.mb-3
+                      .input-group-prepend
+                        span.input-group-text $
+                      input.form-control(type='text' aria-label='Amount (to the nearest dollar)')
+                      .input-group-append
+                        span.input-group-text .00
                   .form-group.col-md-4
-                    label(for='inputQuantity') Quantity
                     select#inputQuantity.form-control
                       option(selected='') Quantity...
                       option 1
@@ -35,43 +66,27 @@ block content
                       option 25
                       option 50
                       option 100
-                .form-group.row
-                  .col-sm-2 Checkbox
-                  .col-sm-10
-                    .form-check
+                  .form-group.col-md-8
+                    .form-check.mt-2
                       input#gridCheck1.form-check-input(type='checkbox')
                       label.form-check-label(for='gridCheck1')
-                        | Example checkbox
-                button.btn.btn-primary(type='submit') Submit
-            .col-sm-6
-              form                
-                .form-group.file-upload-wrapper
-                  label(for='exampleFormControlFile1') Product Image
-                  input#exampleFormControlFile1.form-control-file(type='file')
-                fieldset.form-group
-                  .row
-                    legend.col-form-label.col-sm-2.pt-0 Brand
-                    .col-sm-10
-                      .form-check
-                        input#gridBrand1.form-check-input(type='radio' name='gridBrand' value='option1' checked='')
-                        label.form-check-label(for='gridBrand1')
-                          | First brand
-                      .form-check
-                        input#gridBrand2.form-check-input(type='radio' name='gridBrand' value='option2')
-                        label.form-check-label(for='gridBrand2')
-                          | Second brand
-                      .form-check.disabled
-                        input#gridBrand3.form-check-input(type='radio' name='gridBrand' value='option3' disabled='')
-                        label.form-check-label(for='gridBrand3')
-                          | Third brand
-                .form-group.col-md-12
-                  label(for='inputQuantity') Version
-                  select#inputQuantity.form-control
-                    option(selected='') Version...
-                    option Version 1.0.5
-                    option Version 1.0.4
-                    option Version 1.0.3
-                    option Version 1.0.2
-                    option Version 1.0.1
-                    option Version 1.0.0
+                        | In Stock
+                  .form-group.col-md-12
+                    button.btn.btn-primary.btn-lg.btn-block(type='submit') Submit
+            .col-sm-1
+    script.
+      function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                  $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+                  $('#imagePreview').hide();
+                  $('#imagePreview').fadeIn(650);
+              }
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+      $("#imageUpload").change(function() {
+          readURL(this);
+      });
     include partials/footer
